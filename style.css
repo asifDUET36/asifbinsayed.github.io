@@ -2177,7 +2177,7 @@ body.light-theme .footer-bottom {
     
     .home-description {
         margin: 0 auto 30px;
-        text-align: center !important;
+        text-align: justify !important;
     }
     
     .home-buttons {
@@ -2208,6 +2208,7 @@ body.light-theme .footer-bottom {
     }
 }
 
+/* ===== MAIN MOBILE RESPONSIVE FIXES (768px and below) ===== */
 @media (max-width: 768px) {
     /* Navigation */
     .nav-menu {
@@ -2342,12 +2343,35 @@ body.light-theme .footer-bottom {
         margin-bottom: 15px !important;
     }
     
+    /* ===== TEXT JUSTIFICATION FIX FOR MOBILE ===== */
     .home-description {
-        font-size: 0.9rem !important;
-        line-height: 1.5 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.7 !important;
         margin-bottom: 20px !important;
-        text-align: left !important;
-        padding: 0 5px !important;
+        text-align: justify !important;
+        text-justify: inter-word !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+        hyphens: auto !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        word-spacing: -0.5px !important;
+        letter-spacing: 0.2px !important;
+    }
+    
+    /* Fix for all long paragraphs */
+    .section-description,
+    .expertise-card p,
+    .project-card p,
+    .research-content p,
+    .achievement-content p,
+    .footer-about p,
+    .info-card p,
+    .home-university-info p,
+    .current-interests p {
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
     }
     
     .home-badge {
@@ -2571,6 +2595,7 @@ body.light-theme .footer-bottom {
     }
 }
 
+/* ===== SMALL MOBILE DEVICES (480px and below) ===== */
 @media (max-width: 480px) {
     .floating-photo {
         width: 200px !important;
@@ -2583,6 +2608,12 @@ body.light-theme .footer-bottom {
     
     .home-typed-container {
         font-size: 1.1rem !important;
+    }
+    
+    .home-description {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        word-spacing: -0.3px !important;
     }
     
     .nav-menu {
@@ -2638,6 +2669,7 @@ body.light-theme .footer-bottom {
     }
 }
 
+/* ===== EXTRA SMALL DEVICES (360px and below) ===== */
 @media (max-width: 360px) {
     .floating-photo {
         width: 180px !important;
@@ -2646,6 +2678,11 @@ body.light-theme .footer-bottom {
     
     .title-name {
         font-size: 1.5rem !important;
+    }
+    
+    .home-description {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
     }
     
     .btn {
