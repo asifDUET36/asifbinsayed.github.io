@@ -302,6 +302,21 @@ body.light-theme .navbar.scrolled {
     font-weight: 800;
 }
 
+/* NEW: Fix clickable logo link */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.logo-link:hover,
+.logo-link:focus,
+.logo-link:active,
+.logo-link:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo-text {
     color: var(--light);
 }
@@ -328,7 +343,6 @@ body.light-theme .navbar.scrolled {
     position: relative;
     padding: 5px 0;
 }
-
 .nav-link::before {
     content: '';
     position: absolute;
