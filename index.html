@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif Bin Sayed an Electrical & Electronic Engineer</title>
+    <title>Asif Bin Sayed - Electrical & Electronic Engineer</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,9 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Lightbox2 for Gallery -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+    
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -20,16 +23,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Loading Screen - Electrical & Binary Themed -->
     <div class="loader-wrapper">
-        <div class="loader">
-            <div class="loader-circle"></div>
-            <div class="loader-text">ABS</div>
+        <div class="loader-container">
+            <div class="loader-circuit"></div>
+            <div class="loader-binary">
+                <span>0</span><span>1</span><span>0</span><span>1</span><span>1</span><span>0</span><span>0</span><span>1</span>
+            </div>
+            <div class="loader-bolt">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <div class="loader-text-abs">ABS</div>
+            <div class="loader-pulse"></div>
+            <div class="loader-current"></div>
         </div>
     </div>
-
-    <!-- Mouse Follower (Light version) -->
-    <div class="mouse-follower"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -43,7 +51,9 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#research" class="nav-link">Research</a></li>
                 <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="https://asifduet36.github.io/" target="_blank" class="nav-link blog-link">Blog <i class="fas fa-external-link-alt"></i></a></li>
             </ul>
             <div class="nav-right">
                 <button class="theme-toggle" id="themeToggle">
@@ -56,7 +66,6 @@
                 </div>
             </div>
         </div>
-        <!-- Close button for mobile menu -->
         <div class="menu-close">
             <i class="fas fa-times"></i>
         </div>
@@ -83,12 +92,12 @@
                 <div class="home-content" data-aos="fade-right" data-aos-duration="1000">
                     <div class="home-badge">
                         <span class="badge-pulse"></span>
-                        <span class="badge-text">Available for opportunities</span>
+                        <span class="badge-text">Seeking Research & Postgraduate Opportunities | Open to Remote Work</span>
                     </div>
                     
                     <h1 class="home-title">
                         <span class="title-greeting">Hello, I'm</span>
-                        <span class="title-name">Asif Bin Sayed <span class="name-highlight"></span></span>
+                        <span class="title-name">Asif Bin Sayed</span>
                     </h1>
                     
                     <div class="home-typed-container">
@@ -96,28 +105,24 @@
                         <span class="typed-text"></span>
                     </div>
                     
-                    <p class="home-description">
-                        An Electrical and Electronic Engineering student passionate about circuit design, 
-                        embedded systems, power electronics, and innovative hardware solutions.
+                    <p class="home-description" style="text-align: justify;">
+                        I am a final-year undergraduate in Electrical and Electronic Engineering with a strong foundation in nanotechnology, nanoelectronics, and their applications in advanced device architectures and biomedical systems. My research background spans image-vision-based ABEL trapping, autonomous robotics, and machine learning, which has equipped me with analytical, computational, and experimental skills. I am highly motivated to expand my expertise into nanomaterials, flexible electronics, and nanoscale device design, and aspire to contribute to pioneering research in these areas at the postgraduate level.
                     </p>
                     
-                    <div class="home-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="3">0</span>
-                            <span class="stat-label">Years of Study</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="8">0</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="2">0</span>
-                            <span class="stat-label">Research Papers</span>
+                    <!-- Current Interests Section -->
+                    <div class="current-interests" data-aos="fade-up" data-aos-delay="100">
+                        <h3><i class="fas fa-microscope"></i> Currently Exploring</h3>
+                        <div class="interests-pills">
+                            <span class="interest-pill">Bio Sensor</span>
+                            <span class="interest-pill">Autonomous Robotics Syestem</span>
+                            <span class="interest-pill">Medical Image Analysis</span>
+		            <span class="interest-pill">Embedded Systems Designing</span>
+			    <span class="interest-pill">Deep Learning</span>
                         </div>
                     </div>
                     
                     <div class="home-buttons">
-                        <a href="#" class="btn btn-primary" id="download-resume">
+                        <a href="My_resume.pdf" class="btn btn-primary" download>
                             <i class="fas fa-download"></i>
                             <span>Download CV</span>
                         </a>
@@ -128,33 +133,50 @@
                     </div>
                     
                     <div class="home-social">
-                        <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-                        <a href="#" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://www.linkedin.com/in/asifbinsayed/" class="social-icon" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/asifDUET36" class="social-icon" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.researchgate.net/profile/Md-Asif-Bin-Sayed" class="social-icon" title="ResearchGate" target="_blank"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://facebook.com/asifbin.sayed16/" class="social-icon" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:asifbinsayed.duet@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    
+                    <!-- University Info Below Photo Area -->
+                    <div class="home-university-info" data-aos="fade-up" data-aos-delay="200">
+                        <div class="uni-card">
+                            <div class="uni-item">
+                                <i class="fas fa-university"></i>
+                                <div>
+                                    <span class="uni-label">University</span>
+                                    <a href="https://www.duet.ac.bd/" target="_blank" class="uni-link">Dhaka University of Engineering & Technology</a>
+                                </div>
+                            </div>
+                            <div class="uni-item">
+                                <i class="fas fa-tower-cell"></i>
+                                <div>
+                                    <span class="uni-label">Department</span>
+                                    <a href="https://www.duet.ac.bd/department/eee" target="_blank" class="uni-link">Electrical & Electronic Engineering</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="home-image-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                     <div class="floating-photo">
                         <div class="photo-frame">
-                            <img src="asif.jpg" alt="Asif" class="profile-photo">
+                            <img src="asif.jpg" alt="Asif Bin Sayed" class="profile-photo">
                             <div class="photo-overlay"></div>
                         </div>
                         <div class="photo-backdrop"></div>
                     </div>
                     
-                    <div class="experience-badge">
-                        <i class="fas fa-microchip"></i>
+                    <!-- Education Badge -->
+                    <div class="education-badge">
+                        <i class="fas fa-graduation-cap"></i>
                         <div class="badge-content">
-                            <span class="badge-title">EEE Student</span>
-                            <span class="badge-subtitle">Class of 2025</span>
+                            <span class="badge-title">Final Year Student of EEE</span>
+                            <span class="badge-subtitle">DUET | Class of 2026</span>
                         </div>
-                    </div>
-                    
-                    <div class="location-badge">
-                        <i class="fas fa-map-pin"></i>
-                        <span>Dhaka, Bangladesh</span>
                     </div>
                 </div>
             </div>
@@ -166,289 +188,167 @@
         </div>
     </section>
 
-    <!-- EXPERTISE SECTION (EEE Focused) -->
+    <!-- EXPERTISE SECTION -->
     <section id="expertise" class="section expertise">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-subtitle">What I Do Best</span>
-                <h2 class="section-title">Engineering Expertise</h2>
-                <p class="section-description">Specialized in electrical and electronic engineering domains</p>
+                <h2 class="section-title">Areas of Expertise</h2>
+                <p class="section-description">Specialized in nanotechnology, embedded systems, and machine learning</p>
             </div>
             
-            <div class="expertise-cards">
-                <div class="expertise-card" data-aos="zoom-in-up" data-aos-delay="100">
+            <div class="expertise-grid">
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Nanotechnology & Nanoelectronics</h3>
+                    <p>Research in nanoparticle trapping, nanoelectronics, and advanced device architectures</p>
+                    <div class="card-tech">
+                        <span>COMSOL</span>
+                        <span>Image Processing</span>
+                        <span>HSV Analysis</span>
+                        <span>ABEL Trapping</span>
+                    </div>
+                </div>
+                
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
-                    <h3>Embedded Systems</h3>
-                    <p>Designing and programming microcontrollers for smart applications</p>
+                    <h3>Embedded Systems & Robotics</h3>
+                    <p>Autonomous robots, sensor integration, and control systems</p>
                     <div class="card-tech">
                         <span>Arduino</span>
                         <span>Raspberry Pi</span>
-                        <span>STM32</span>
-                        <span>ESP32</span>
-                        <span>RTOS</span>
-                    </div>
-                    <div class="skill-progress-container">
-                        <div class="skill-progress-label">
-                            <span>Proficiency</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" data-width="90"></div>
-                        </div>
+                        <span>YOLO</span>
+                        <span>OpenCV</span>
+                        <span>LoRa</span>
                     </div>
                 </div>
                 
-                <div class="expertise-card" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <h3>Power Electronics</h3>
-                    <p>Designing converters, inverters, and power management systems</p>
+                    <h3>Machine Learning & Deep Learning</h3>
+                    <p>Medical image analysis, time-series forecasting, and computer vision</p>
                     <div class="card-tech">
-                        <span>DC-DC Converters</span>
-                        <span>Inverters</span>
-                        <span>Motor Drives</span>
-                        <span>SMPS</span>
-                        <span>Power MOSFETs</span>
-                    </div>
-                    <div class="skill-progress-container">
-                        <div class="skill-progress-label">
-                            <span>Proficiency</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" data-width="85"></div>
-                        </div>
+                        <span>TensorFlow</span>
+                        <span>PyTorch</span>
+                        <span>Keras</span>
+                        <span>Scikit-Learn</span>
+                        <span>CNN-LSTM</span>
                     </div>
                 </div>
                 
-                <div class="expertise-card" data-aos="zoom-in-up" data-aos-delay="300">
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="card-icon">
-                        <i class="fas fa-wave-square"></i>
+                        <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Circuit Design</h3>
-                    <p>Analog and digital circuit design with simulation and PCB layout</p>
+                    <h3>Biomedical Applications</h3>
+                    <p>Medical device design and disease detection systems</p>
                     <div class="card-tech">
-                        <span>Altium</span>
-                        <span>KiCad</span>
-                        <span>LTspice</span>
-                        <span>MATLAB</span>
-                        <span>PSpice</span>
-                    </div>
-                    <div class="skill-progress-container">
-                        <div class="skill-progress-label">
-                            <span>Proficiency</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" data-width="88"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="expertise-card" data-aos="zoom-in-up" data-aos-delay="400">
-                    <div class="card-icon">
-                        <i class="fas fa-signal"></i>
-                    </div>
-                    <h3>Signal Processing</h3>
-                    <p>Digital signal processing for communication and control systems</p>
-                    <div class="card-tech">
-                        <span>DSP</span>
-                        <span>Filters</span>
-                        <span>FFT</span>
-                        <span>Wavelets</span>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-progress-container">
-                        <div class="skill-progress-label">
-                            <span>Proficiency</span>
-                            <span>82%</span>
-                        </div>
-                        <div class="skill-progress-bar">
-                            <div class="skill-progress-fill" data-width="82"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Detailed Skills Breakdown -->
-            <div class="skills-breakdown" data-aos="fade-up" data-aos-delay="500">
-                <h3>Technical Skills Matrix</h3>
-                <div class="skills-matrix">
-                    <div class="skill-group">
-                        <h4>Programming Languages</h4>
-                        <div class="skill-bubbles">
-                            <span class="skill-bubble" data-level="90">C/C++</span>
-                            <span class="skill-bubble" data-level="85">Python</span>
-                            <span class="skill-bubble" data-level="75">MATLAB</span>
-                            <span class="skill-bubble" data-level="70">Verilog</span>
-                            <span class="skill-bubble" data-level="65">Assembly</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-group">
-                        <h4>Simulation Tools</h4>
-                        <div class="skill-bubbles">
-                            <span class="skill-bubble" data-level="90">MATLAB/Simulink</span>
-                            <span class="skill-bubble" data-level="85">LTspice</span>
-                            <span class="skill-bubble" data-level="80">PSpice</span>
-                            <span class="skill-bubble" data-level="75">Multisim</span>
-                            <span class="skill-bubble" data-level="70">Proteus</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-group">
-                        <h4>PCB Design</h4>
-                        <div class="skill-bubbles">
-                            <span class="skill-bubble" data-level="85">Altium Designer</span>
-                            <span class="skill-bubble" data-level="80">KiCad</span>
-                            <span class="skill-bubble" data-level="75">Eagle</span>
-                            <span class="skill-bubble" data-level="70">EasyEDA</span>
-                            <span class="skill-bubble" data-level="65">Fusion 360</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-group">
-                        <h4>Hardware & Platforms</h4>
-                        <div class="skill-bubbles">
-                            <span class="skill-bubble" data-level="95">Arduino</span>
-                            <span class="skill-bubble" data-level="90">Raspberry Pi</span>
-                            <span class="skill-bubble" data-level="85">ESP32</span>
-                            <span class="skill-bubble" data-level="80">STM32</span>
-                            <span class="skill-bubble" data-level="75">FPGA</span>
-                        </div>
+                        <span>ECG Systems</span>
+                        <span>Cancer Detection</span>
+                        <span>Cardiac Pacing</span>
+                        <span>Signal Processing</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS SECTION (EEE Focused) -->
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="section projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-subtitle">My Portfolio</span>
                 <h2 class="section-title">Engineering Projects</h2>
-                <p class="section-description">Hardware and software projects in electrical and electronic engineering</p>
-            </div>
-            
-            <div class="projects-filter" data-aos="fade-up" data-aos-delay="100">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
-                <button class="filter-btn" data-filter="power">Power Electronics</button>
-                <button class="filter-btn" data-filter="circuit">Circuit Design</button>
-                <button class="filter-btn" data-filter="research">Research</button>
+                <p class="section-description">Hardware and software projects in electrical engineering</p>
             </div>
             
             <div class="projects-grid" id="projectsGrid">
-                <!-- Projects will be loaded dynamically -->
+                <!-- Projects will be loaded dynamically from script.js -->
             </div>
             
-            <div class="projects-more" data-aos="fade-up">
-                <a href="#" class="btn btn-outline" id="viewAllProjects">
-                    <i class="fas fa-folder-open"></i>
-                    <span>View All Projects</span>
+            <div class="projects-footer" data-aos="fade-up">
+                <a href="https://www.linkedin.com/in/asifbinsayed/" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>Follow on LinkedIn</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- RESEARCH SECTION (EEE Focused) -->
+    <!-- RESEARCH SECTION -->
     <section id="research" class="section research">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-subtitle">Academic Contributions</span>
-                <h2 class="section-title">Research & Publications</h2>
-                <p class="section-description">Contributions to electrical and electronic engineering research</p>
+                <span class="section-subtitle">Working Research</span>
+                <h2 class="section-title">Research in Progress</h2>
+                <p class="section-description">Ongoing research contributions to electrical and electronic engineering</p>
             </div>
             
             <div class="research-timeline">
+                <!-- Research Item 1 -->
                 <div class="research-item" data-aos="fade-right">
+                    <div class="research-year">2026</div>
+                    <div class="research-content">
+                        <h3>Development of a Portable Tri-Electrode Electrochemical Food Analyzer for Rapid Multi-Adulterant Detection Using Electrical Signature Analysis</h3>
+                        <p class="research-authors">Asif Bin Sayed</p>
+                        <p class="research-journal">On Review, Started</p>
+                        <div class="research-tags">
+                            <span class="research-tag">Electrochemical</span>
+                            <span class="research-tag">Food Analysis</span>
+                            <span class="research-tag">Embedded Systems</span>
+                            <span class="research-tag">Signal Processing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Research Item 2 -->
+                <div class="research-item" data-aos="fade-left" data-aos-delay="100">
+                    <div class="research-year">2025</div>
+                    <div class="research-content">
+                        <h3>Development of Rapid Feedback and Optimized Detection Algorithms to Enhance the Spatiotemporal Resolution of the ABEL Trap</h3>
+                        <p class="research-authors">Asif Bin Sayed</p>
+                        <p class="research-journal">In Publishing Pipeline</p>
+                        <div class="research-tags">
+                            <span class="research-tag">ABEL Trap</span>
+                            <span class="research-tag">Detection Algorithms</span>
+                            <span class="research-tag">Image Processing</span>
+                            <span class="research-tag">Nanotechnology</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Research Item 3 -->
+                <div class="research-item" data-aos="fade-right" data-aos-delay="200">
                     <div class="research-year">2024</div>
                     <div class="research-content">
-                        <h3>Efficient MPPT Algorithm for Solar PV Systems Under Partial Shading</h3>
-                        <p class="research-authors">Asif, Dr. Rahman, Prof. Ahmed</p>
-                        <p class="research-journal">IEEE Transactions on Power Electronics (Under Review)</p>
+                        <h3>Autonomous Outdoor Trash-Collecting Robot with Real-Time Multi-Class Waste Detection, Sorting, and GPS-Guided Disposal</h3>
+                        <p class="research-authors">Asif Bin Sayed</p>
+                        <p class="research-journal">In Publishing Pipeline</p>
                         <div class="research-tags">
-                            <span class="research-tag">Solar Energy</span>
-                            <span class="research-tag">MPPT</span>
-                            <span class="research-tag">Power Electronics</span>
-                        </div>
-                        <div class="research-links">
-                            <a href="#" class="research-link"><i class="fas fa-file-pdf"></i> Preprint</a>
-                            <a href="#" class="research-link"><i class="fas fa-code"></i> MATLAB Code</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="research-item" data-aos="fade-left" data-aos-delay="100">
-                    <div class="research-year">2023</div>
-                    <div class="research-content">
-                        <h3>IoT-Based Smart Energy Meter for Residential Load Monitoring</h3>
-                        <p class="research-authors">Asif, Kamal, Islam</p>
-                        <p class="research-journal">International Conference on Electrical Engineering (ICEE 2023)</p>
-                        <div class="research-tags">
-                            <span class="research-tag">IoT</span>
-                            <span class="research-tag">Energy Monitoring</span>
-                            <span class="research-tag">Embedded Systems</span>
-                        </div>
-                        <div class="research-links">
-                            <a href="#" class="research-link"><i class="fas fa-file-pdf"></i> Paper</a>
-                            <a href="#" class="research-link"><i class="fas fa-video"></i> Presentation</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="research-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="research-year">2022</div>
-                    <div class="research-content">
-                        <h3>Design and Implementation of a Low-Cost ECG Monitoring System</h3>
-                        <p class="research-authors">Asif, Prof. Chowdhury</p>
-                        <p class="research-journal">IEEE Region 10 Symposium (TENSYMP 2022)</p>
-                        <div class="research-tags">
-                            <span class="research-tag">Biomedical</span>
-                            <span class="research-tag">Signal Processing</span>
-                            <span class="research-tag">Embedded Systems</span>
-                        </div>
-                        <div class="research-links">
-                            <a href="#" class="research-link"><i class="fas fa-file-pdf"></i> Paper</a>
-                            <a href="#" class="research-link"><i class="fas fa-github"></i> Hardware Files</a>
+                            <span class="research-tag">Autonomous Robotics</span>
+                            <span class="research-tag">YOLO</span>
+                            <span class="research-tag">GPS Navigation</span>
+                            <span class="research-tag">Computer Vision</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Research Stats -->
-            <div class="research-stats" data-aos="fade-up">
-                <div class="stat-card">
-                    <i class="fas fa-file-alt"></i>
-                    <div class="stat-info">
-                        <span class="stat-value">2+</span>
-                        <span class="stat-label">Publications</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-quote-left"></i>
-                    <div class="stat-info">
-                        <span class="stat-value">15+</span>
-                        <span class="stat-label">Citations</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-microchip"></i>
-                    <div class="stat-info">
-                        <span class="stat-value">8+</span>
-                        <span class="stat-label">Hardware Projects</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-trophy"></i>
-                    <div class="stat-info">
-                        <span class="stat-value">2</span>
-                        <span class="stat-label">Awards</span>
-                    </div>
+            <div class="research-interests" data-aos="fade-up">
+                <h3>Research Interests</h3>
+                <div class="interests-grid">
+                    <span class="interest-item">Nanotechnology and Nanoelectronics</span>
+                    <span class="interest-item">Biomedical Applications</span>
+                    <span class="interest-item">Machine Learning & Deep Learning</span>
+                    <span class="interest-item">Autonomous Systems</span>
+                    <span class="interest-item">Robotics Prototyping</span>
+                    <span class="interest-item">Early-Stage Disease Detection</span>
                 </div>
             </div>
         </div>
@@ -469,34 +369,31 @@
                         <i class="fas fa-medal"></i>
                     </div>
                     <div class="achievement-content">
-                        <h3>University Merit Scholarship</h3>
-                        <p class="achievement-org">DUET</p>
-                        <p class="achievement-year">2022-2024</p>
-                        <p class="achievement-desc">For academic excellence in Electrical Engineering</p>
+                        <h3>Champion, Poster Presentation</h3>
+                        <p class="achievement-org">Industrial Expo and Job Fair 2025, DUET</p>
+                        <p class="achievement-year">January 2025</p>
                     </div>
                 </div>
                 
                 <div class="achievement-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="achievement-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-trophy"></i>
                     </div>
                     <div class="achievement-content">
-                        <h3>1st Place - Hardware Hackathon</h3>
-                        <p class="achievement-org">IEEE Bangladesh Section</p>
-                        <p class="achievement-year">2023</p>
-                        <p class="achievement-desc">Smart Energy Monitoring System</p>
+                        <h3>2nd Place, Cozmoclench</h3>
+                        <p class="achievement-org">Techfest IIT Bombay Bangladesh Zonal</p>
+                        <p class="achievement-year">October 2024</p>
                     </div>
                 </div>
                 
                 <div class="achievement-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="achievement-icon">
-                        <i class="fas fa-trophy"></i>
+                        <i class="fas fa-award"></i>
                     </div>
                     <div class="achievement-content">
-                        <h3>Best Student Paper Award</h3>
-                        <p class="achievement-org">ICEE 2023</p>
-                        <p class="achievement-year">2023</p>
-                        <p class="achievement-desc">For IoT-based Energy Meter research</p>
+                        <h3>4th Place, Meshmerize</h3>
+                        <p class="achievement-org">Techfest IIT Bombay Bangladesh Zonal</p>
+                        <p class="achievement-year">October 2024</p>
                     </div>
                 </div>
                 
@@ -505,42 +402,76 @@
                         <i class="fas fa-crown"></i>
                     </div>
                     <div class="achievement-content">
-                        <h3>Dean's List Award</h3>
-                        <p class="achievement-org">Faculty of Engineering</p>
-                        <p class="achievement-year">2021-2023</p>
-                        <p class="achievement-desc">Top 5% of the class for 3 consecutive years</p>
+                        <h3>Champion, Line Following Robot</h3>
+                        <p class="achievement-org">DUET Techfest 2023</p>
+                        <p class="achievement-year">July 2023</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Certifications -->
-            <div class="certifications" data-aos="fade-up">
-                <h3>Certifications</h3>
-                <div class="cert-grid">
-                    <div class="cert-item">
-                        <i class="fas fa-microchip"></i>
-                        <span>Embedded Systems Specialization - Coursera</span>
+            <!-- Leadership Positions -->
+            <div class="leadership-section" data-aos="fade-up">
+                <h3>Leadership & Volunteer Experience</h3>
+                <div class="leadership-grid">
+                    <div class="leadership-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <h4>Senior Vice President</h4>
+                            <p>DUET Robotics Club (DRC) · Present</p>
+                        </div>
                     </div>
-                    <div class="cert-item">
-                        <i class="fas fa-bolt"></i>
-                        <span>Power Electronics - NPTEL</span>
+                    <div class="leadership-item">
+                        <i class="fas fa-flag"></i>
+                        <div>
+                            <h4>Campus Ambassador</h4>
+                            <p>Ulkasemi Pvt. Limited</p>
+                        </div>
                     </div>
-                    <div class="cert-item">
-                        <i class="fas fa-wave-square"></i>
-                        <span>PCB Design with Altium - Udemy</span>
+                    <div class="leadership-item">
+                        <i class="fas fa-calculator"></i>
+                        <div>
+                            <h4>Finance Secretary</h4>
+                            <p>DUET Robotics Club (DRC) · 2022-2023</p>
+                        </div>
                     </div>
-                    <div class="cert-item">
-                        <i class="fab fa-raspberry-pi"></i>
-                        <span>Raspberry Pi Certification</span>
+                    <div class="leadership-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div>
+                            <h4>Robotics Instructor</h4>
+                            <p>Softmax Online School & DUET Robotics Club</p>
+                        </div>
                     </div>
-                    <div class="cert-item">
-                        <i class="fas fa-robot"></i>
-                        <span>Robotics & Automation - MIT OpenCourseWare</span>
+                    <div class="leadership-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h4>Organizer</h4>
+                            <p>DUET Techfest 2025</p>
+                        </div>
                     </div>
-                    <div class="cert-item">
-                        <i class="fas fa-bolt"></i>
-                        <span>Solar Energy Engineering - DelftX</span>
+                    <div class="leadership-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>Volunteer</h4>
+                            <p>ICAEEE 2024</p>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Moments</span>
+                <h2 class="section-title">Photo Gallery</h2>
+                <p class="section-description">Glimpses from my journey in engineering and robotics</p>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be loaded dynamically from script.js -->
                 </div>
             </div>
         </div>
@@ -560,34 +491,35 @@
                     <div class="info-card">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <a href="mailto:asif.eee@example.com">asif.eee@example.com</a>
-                        <p>Response within 24h</p>
+                        <a href="mailto:asifbinsayed.duet@gmail.com">asifbinsayed.duet@gmail.com</a>
                     </div>
                     
                     <div class="info-card">
                         <i class="fas fa-phone-alt"></i>
                         <h3>Phone</h3>
-                        <a href="tel:+880123456789">+880 1234-56789</a>
-                        <p>Mon-Fri, 9am-6pm</p>
+                        <a href="tel:+8801722951139">+880 1722-951139</a>
                     </div>
                     
                     <div class="info-card">
                         <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Open to remote work</p>
+                        <h3>Residence</h3>
+                        <p>R-702, STA Hall, DUET</p>
+                        <p>Gazipur, Dhaka, Bangladesh</p>
                     </div>
                     
-                    <div class="info-card">
-                        <i class="fas fa-university"></i>
-                        <h3>University</h3>
-                        <p>Dhaka University of Engineering & Technology</p>
-                        <p>Electrical & Electronic Engineering</p>
+                    <div class="info-card social-card">
+                        <h3>Connect</h3>
+                        <div class="info-social">
+                            <a href="https://www.linkedin.com/in/asifbinsayed/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/asifDUET36" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.researchgate.net/profile/Md-Asif-Bin-Sayed" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                            <a href="https://facebook.com/asifbin.sayed16/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="contact-form-container" data-aos="fade-left">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="mailto:asifbinsayed.duet@gmail.com" method="post" enctype="text/plain">
                         <div class="form-group">
                             <input type="text" id="name" name="name" required>
                             <label for="name">Your Name</label>
@@ -604,24 +536,12 @@
                         </div>
                         
                         <div class="form-group">
-                            <select id="projectType" name="projectType" required>
-                                <option value="" disabled selected></option>
-                                <option value="embedded">Embedded Systems</option>
-                                <option value="power">Power Electronics</option>
-                                <option value="circuit">Circuit Design</option>
-                                <option value="research">Research Collaboration</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <label for="projectType">Project Type</label>
-                        </div>
-                        
-                        <div class="form-group">
                             <textarea id="message" name="message" rows="5" required></textarea>
                             <label for="message">Tell me about your project</label>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i>
+                            <i class="fas fa-envelope"></i>
                             <span>Send Message</span>
                         </button>
                     </form>
@@ -636,12 +556,12 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <div class="footer-logo">Asif Bin Sayed<span>.</span></div>
-                    <p>Electrical and Electronic Engineering student passionate about hardware design, embedded systems, and power electronics.</p>
+                    <p>Final-year undergraduate in Electrical and Electronic Engineering with research focus on nanotechnology, embedded systems, and machine learning applications.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-researchgate"></i></a>
-                        <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://www.linkedin.com/in/asifbinsayed/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/asifDUET36" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.researchgate.net/profile/Md-Asif-Bin-Sayed" target="_blank"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://facebook.com/asifbin.sayed16/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
                 
@@ -653,34 +573,32 @@
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#research">Research</a></li>
                         <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">CV/Resume</a></li>
-                        <li><a href="#">Publications</a></li>
-                        <li><a href="#">Presentations</a></li>
-                        <li><a href="#">GitHub Repos</a></li>
-                        <li><a href="#">Circuit Designs</a></li>
+                        <li><a href="My_resume.pdf" download>CV/Resume</a></li>
+                        <li><a href="https://github.com/asifDUET36" target="_blank">GitHub Repos</a></li>
+                        <li><a href="https://www.linkedin.com/in/asifbinsayed/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://asifduet36.github.io/" target="_blank">Blog</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-contact">
                     <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> asif.eee@example.com</p>
-                    <p><i class="fas fa-phone"></i> +880 1234-56789</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
-                    <p><i class="fas fa-university"></i> DUET, EEE Department</p>
+                    <p><i class="fas fa-envelope"></i> asifbinsayed.duet@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +880 1722-951139</p>
+                    <p><i class="fas fa-map-marker-alt"></i> R-702, STA Hall, DUET</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Asif | Electrical & Electronic Engineer</p>
+                <p>&copy; 2025 Asif Bin Sayed | Electrical & Electronic Engineer</p>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
+                    <!-- Links removed as requested -->
                 </div>
             </div>
         </div>
@@ -689,6 +607,7 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

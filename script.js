@@ -1,20 +1,15 @@
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
     initLoader();
-    initMouseFollower();
     initNavbar();
     initVisitorInfo();
     initTyped();
     initAOS();
-    initStatsCounter();
-    initSkillProgress();
-    initProjectFilter();
-    initContactForm();
-    initDownloadResume();
+    initProjectData();
+    initGallery();
     initHamburger();
     initThemeToggle();
     initSmoothScroll();
-    initProjectData();
     initMenuClose();
 });
 
@@ -25,38 +20,7 @@ function initLoader() {
     window.addEventListener('load', () => {
         setTimeout(() => {
             loader.classList.add('hidden');
-        }, 1000);
-    });
-}
-
-// ===== MOUSE FOLLOWER =====
-function initMouseFollower() {
-    const follower = document.querySelector('.mouse-follower');
-    
-    if (!follower) return;
-    
-    document.addEventListener('mousemove', (e) => {
-        follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    });
-    
-    const hoverElements = document.querySelectorAll('a, button, .btn, .project-card, .filter-btn, .social-icon');
-    
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            follower.classList.add('hover');
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            follower.classList.remove('hover');
-        });
-    });
-    
-    document.addEventListener('mouseleave', () => {
-        follower.style.opacity = '0';
-    });
-    
-    document.addEventListener('mouseenter', () => {
-        follower.style.opacity = '0.5';
+        }, 2000); // Show loader for 2 seconds to enjoy the animation
     });
 }
 
@@ -131,11 +95,12 @@ function initTyped() {
     if (typeof Typed !== 'undefined') {
         new Typed('.typed-text', {
             strings: [
+                'research nanotechnology',
                 'design embedded systems',
-                'work with microcontrollers',
-                'develop power electronics',
-                'create PCB layouts',
-                'research renewable energy'
+                'develop ML models',
+                'work on biomedical devices',
+                'explore nanoelectronics',
+                'am a robotics instructor'
             ],
             typeSpeed: 50,
             backSpeed: 30,
@@ -157,131 +122,72 @@ function initAOS() {
     }
 }
 
-// ===== STATS COUNTER =====
-function initStatsCounter() {
-    const stats = document.querySelectorAll('.stat-number');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const targetValue = parseInt(target.getAttribute('data-target'));
-                
-                let current = 0;
-                const increment = targetValue / 50;
-                
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < targetValue) {
-                        target.textContent = Math.ceil(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        target.textContent = targetValue + '+';
-                    }
-                };
-                
-                updateCounter();
-                observer.unobserve(target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    stats.forEach(stat => observer.observe(stat));
-}
-
-// ===== SKILL PROGRESS =====
-function initSkillProgress() {
-    const progressBars = document.querySelectorAll('.skill-progress-fill');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const width = entry.target.getAttribute('data-width') || 0;
-                entry.target.style.width = width + '%';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    progressBars.forEach(bar => observer.observe(bar));
-}
-
-// ===== PROJECT FILTER =====
-function initProjectFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const filter = btn.dataset.filter;
-            
-            // Filter projects
-            filterProjects(filter);
-        });
-    });
-}
-
-function filterProjects(filter) {
-    const projects = document.querySelectorAll('.project-card');
-    
-    projects.forEach(project => {
-        if (filter === 'all' || project.dataset.category === filter) {
-            project.style.display = 'block';
-            setTimeout(() => {
-                project.style.opacity = '1';
-                project.style.transform = 'scale(1)';
-            }, 10);
-        } else {
-            project.style.opacity = '0';
-            project.style.transform = 'scale(0.8)';
-            setTimeout(() => {
-                project.style.display = 'none';
-            }, 300);
-        }
-    });
-}
-
 // ===== PROJECT DATA =====
 function initProjectData() {
     const projects = [
         {
-            category: 'embedded',
-            icon: 'fa-microchip',
-            title: 'Smart Home Energy Monitor',
-            description: 'ESP32-based real-time energy monitoring system with IoT dashboard.',
-            tech: ['ESP32', 'Arduino', 'Python', 'MQTT'],
-            github: '#',
-            demo: '#'
+            title: 'Autonomous Outdoor Trash-Collecting Robot',
+            description: 'Real-time multi-class waste detection, sorting, and GPS-guided disposal system.',
+            tech: ['YOLOv11', 'Raspberry Pi', 'GPS', 'Computer Vision'],
+            icon: 'fa-robot',
+            hasCode: false,
+            hasDemo: false
         },
         {
-            category: 'power',
-            icon: 'fa-bolt',
-            title: 'Solar MPPT Charge Controller',
-            description: '30A MPPT charge controller with maximum power point tracking algorithm.',
-            tech: ['MOSFETs', 'PIC Microcontroller', 'C', 'LTspice'],
-            github: '#',
-            demo: '#'
+            title: 'Plant Nutrient Deficiency Detection System',
+            description: 'System using Python, OpenCV, Arduino and GSM for detecting and alerting plant nutrient deficiencies.',
+            tech: ['OpenCV', 'Arduino', 'GSM', 'Python'],
+            icon: 'fa-leaf',
+            hasCode: false,
+            hasDemo: false
         },
         {
-            category: 'circuit',
-            icon: 'fa-microchip',
-            title: 'ECG Amplifier Circuit',
-            description: 'Low-noise instrumentation amplifier for biomedical signal acquisition.',
-            tech: ['Op-Amps', 'Filters', 'Altium', 'SPICE'],
-            github: '#',
-            demo: '#'
+            title: 'Remote Weather Telemetry Using LoRa',
+            description: 'Long-range weather monitoring system with custom data encryption using LoRa communication.',
+            tech: ['LoRa', 'Arduino', 'Encryption', 'Sensors'],
+            icon: 'fa-cloud-sun',
+            hasCode: false,
+            hasDemo: false
         },
         {
-            category: 'research',
-            icon: 'fa-chart-line',
-            title: 'PV System Modeling',
-            description: 'MATLAB/Simulink model of photovoltaic system with MPPT algorithms.',
-            tech: ['MATLAB', 'Simulink', 'Power Electronics'],
-            github: '#',
-            demo: '#'
+            title: 'Mars Rover Navigation System',
+            description: 'Autonomous navigation system for Mars rover simulation using Python, OpenCV and machine learning.',
+            tech: ['Python', 'OpenCV', 'Machine Learning', 'Navigation'],
+            icon: 'fa-rocket',
+            hasCode: false,
+            hasDemo: false
+        },
+        {
+            title: 'Autonomous Firefighting Robot',
+            description: 'Arduino-based robot with flame sensors and motor controllers for autonomous fire detection and extinguishing.',
+            tech: ['Arduino', 'Flame Sensors', 'Motor Control', 'C++'],
+            icon: 'fa-fire-extinguisher',
+            hasCode: false,
+            hasDemo: false
+        },
+        {
+            title: 'Advanced Line Following Robot',
+            description: 'High-speed line following robot with PID control and multiple sensor fusion.',
+            tech: ['Arduino', 'IR Sensors', 'PID', 'C++'],
+            icon: 'fa-arrows-alt',
+            hasCode: false,
+            hasDemo: false
+        },
+        {
+            title: 'Maze Solving Robot',
+            description: 'Autonomous robot capable of solving unknown mazes using advanced algorithms.',
+            tech: ['Arduino', 'Sensors', 'Algorithms', 'C++'],
+            icon: 'fa-square',
+            hasCode: false,
+            hasDemo: false
+        },
+        {
+            title: 'IR Sensor People Counter',
+            description: 'Automated people counting system using IR sensors for room occupancy monitoring.',
+            tech: ['Arduino', 'IR Sensors', 'Display', 'C++'],
+            icon: 'fa-users',
+            hasCode: false,
+            hasDemo: false
         }
     ];
     
@@ -291,9 +197,23 @@ function initProjectData() {
     projects.forEach((project, index) => {
         const card = document.createElement('div');
         card.className = 'project-card';
-        card.dataset.category = project.category;
-        card.setAttribute('data-aos', 'zoom-in-up');
-        card.setAttribute('data-aos-delay', (index + 2) * 100);
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', (index % 4) * 100);
+        
+        // Generate card links HTML based on availability
+        let linksHTML = '';
+        if (project.hasCode || project.hasDemo) {
+            linksHTML = '<div class="card-links active">';
+            if (project.hasCode) {
+                linksHTML += '<a href="#" class="card-link"><i class="fab fa-github"></i> Code</a>';
+            }
+            if (project.hasDemo) {
+                linksHTML += '<a href="#" class="card-link"><i class="fas fa-external-link-alt"></i> Demo</a>';
+            }
+            linksHTML += '</div>';
+        } else {
+            linksHTML = '<div class="card-links"></div>'; // Empty but keeps structure
+        }
         
         card.innerHTML = `
             <div class="card-media">
@@ -306,10 +226,7 @@ function initProjectData() {
                 <div class="tech-stack">
                     ${project.tech.map(t => `<span>${t}</span>`).join('')}
                 </div>
-                <div class="card-links">
-                    <a href="${project.github}" class="card-link"><i class="fab fa-github"></i> Details</a>
-                    <a href="${project.demo}" class="card-link"><i class="fas fa-external-link-alt"></i> Demo</a>
-                </div>
+                ${linksHTML}
             </div>
         `;
         
@@ -322,132 +239,236 @@ function initProjectData() {
     }
 }
 
-// ===== CONTACT FORM =====
-function initContactForm() {
-    const form = document.getElementById('contactForm');
+// ===== GALLERY WITH INFINITE SLIDESHOW =====
+function initGallery() {
+    const galleryGrid = document.getElementById('galleryGrid');
+    if (!galleryGrid) return;
     
-    if (!form) return;
+    // Clear existing content
+    galleryGrid.innerHTML = '';
     
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    // List of possible image formats
+    const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    
+    // Array to store gallery items
+    let galleryItems = [];
+    let loadedCount = 0;
+    let currentPage = 0;
+    const itemsPerPage = 4; // Show exactly 4 photos per page
+    
+    // Auto slideshow variables
+    let slideshowInterval = null;
+    const slideshowDelay = 3000; // 5 seconds between slides
+    
+    // Create navigation elements
+    const galleryContainer = document.querySelector('.gallery-container');
+    
+    // Create navigation if it doesn't exist
+    let navContainer = document.querySelector('.gallery-navigation');
+    if (!navContainer) {
+        navContainer = document.createElement('div');
+        navContainer.className = 'gallery-navigation';
+        navContainer.innerHTML = `
+            <button class="gallery-nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="gallery-dots"></div>
+            <button class="gallery-nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        `;
+        galleryContainer.appendChild(navContainer);
+    }
+    
+    const prevBtn = navContainer.querySelector('.prev-btn');
+    const nextBtn = navContainer.querySelector('.next-btn');
+    const dotsContainer = navContainer.querySelector('.gallery-dots');
+    
+    // Clear existing dots
+    dotsContainer.innerHTML = '';
+    
+    // Function to start slideshow
+    function startSlideshow() {
+        if (slideshowInterval) {
+            clearInterval(slideshowInterval);
+        }
+        slideshowInterval = setInterval(() => {
+            const totalPages = Math.ceil(loadedCount / itemsPerPage);
+            if (totalPages > 1) {
+                // Infinite loop - go to next page or back to first
+                const nextPage = (currentPage + 1) % totalPages;
+                goToPage(nextPage);
+            }
+        }, slideshowDelay);
+    }
+    
+    // Function to stop slideshow
+    function stopSlideshow() {
+        if (slideshowInterval) {
+            clearInterval(slideshowInterval);
+            slideshowInterval = null;
+        }
+    }
+    
+    // Function to load images
+    function loadImages() {
+        let promises = [];
+        const maxImages = 50; // Maximum number of images to check
         
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
+        for (let i = 1; i <= maxImages; i++) {
+            imageExtensions.forEach(ext => {
+                const imagePath = `G_${i}.${ext}`;
+                
+                const promise = new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = function() {
+                        resolve({
+                            path: imagePath,
+                            caption: `Event ${i}`,
+                            exists: true
+                        });
+                    };
+                    img.onerror = function() {
+                        resolve({
+                            path: imagePath,
+                            exists: false
+                        });
+                    };
+                    img.src = imagePath;
+                });
+                
+                promises.push(promise);
+            });
+        }
         
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        // Simulate form submission
-        setTimeout(() => {
-            showNotification('Message sent successfully!', 'success');
-            form.reset();
+        Promise.all(promises).then(results => {
+            galleryItems = results.filter(item => item.exists);
+            loadedCount = galleryItems.length;
             
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }, 1500);
+            if (loadedCount === 0) {
+                galleryGrid.innerHTML = `
+                    <div class="no-gallery" style="grid-column: 1/-1; text-align: center; padding: 50px;">
+                        <i class="fas fa-images" style="font-size: 3rem; color: var(--gray); margin-bottom: 20px;"></i>
+                        <p style="color: var(--gray);">Gallery images will appear here. Add images with G_ prefix (e.g., G_1.jpg, G_2.jpg) to your folder.</p>
+                    </div>
+                `;
+                navContainer.style.display = 'none';
+            } else {
+                navContainer.style.display = 'flex';
+                
+                // Create dots
+                const totalPages = Math.ceil(loadedCount / itemsPerPage);
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => {
+                        stopSlideshow();
+                        goToPage(i);
+                        startSlideshow();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+                
+                // Show first page
+                goToPage(0);
+                
+                // Start slideshow
+                if (totalPages > 1) {
+                    startSlideshow();
+                }
+                
+                // No disabled buttons - infinite navigation
+                prevBtn.disabled = false;
+                nextBtn.disabled = false;
+            }
+        });
+    }
+    
+    // Function to go to specific page
+    function goToPage(pageIndex) {
+        const totalPages = Math.ceil(loadedCount / itemsPerPage);
+        
+        // Handle infinite navigation
+        if (pageIndex < 0) {
+            pageIndex = totalPages - 1; // Go to last page
+        } else if (pageIndex >= totalPages) {
+            pageIndex = 0; // Go to first page
+        }
+        
+        currentPage = pageIndex;
+        const start = currentPage * itemsPerPage;
+        const end = Math.min(start + itemsPerPage, loadedCount);
+        const pageItems = galleryItems.slice(start, end);
+        
+        // Clear grid
+        galleryGrid.innerHTML = '';
+        
+        // Add items for current page
+        pageItems.forEach((item, index) => {
+            addGalleryItem(item.path, item.caption, index + (currentPage * itemsPerPage));
+        });
+        
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.gallery-dot');
+        dots.forEach((dot, index) => {
+            if (index === currentPage) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+        
+        // Buttons are always enabled for infinite navigation
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+        
+        // Refresh AOS
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+    
+    // Function to add gallery item
+    function addGalleryItem(imagePath, caption, index) {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.setAttribute('data-aos', 'zoom-in');
+        item.setAttribute('data-aos-delay', (index % 4) * 100);
+        
+        item.innerHTML = `
+            <a href="${imagePath}" data-lightbox="engineering-gallery" data-title="${caption}">
+                <img src="${imagePath}" alt="${caption}" loading="lazy">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </a>
+        `;
+        
+        galleryGrid.appendChild(item);
+    }
+    
+    // Add event listeners for navigation buttons - infinite navigation
+    prevBtn.addEventListener('click', () => {
+        stopSlideshow();
+        const totalPages = Math.ceil(loadedCount / itemsPerPage);
+        goToPage(currentPage - 1); // Will wrap to last page if negative
+        startSlideshow();
     });
-}
-
-// ===== DOWNLOAD RESUME =====
-function initDownloadResume() {
-    const downloadBtn = document.getElementById('download-resume');
     
-    if (!downloadBtn) return;
-    
-    downloadBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
-        
-        setTimeout(() => {
-            // Create resume content
-            const resumeContent = `ASIF - ELECTRICAL & ELECTRONIC ENGINEER
-
-CONTACT
-=======
-Name: Asif [Your Last Name]
-Email: asif.eee@example.com
-Phone: +880 1234-56789
-Location: Dhaka, Bangladesh
-University: BUET (Bangladesh University of Engineering and Technology)
-
-EDUCATION
-=========
-B.Sc. in Electrical and Electronic Engineering | BUET (2021-2025)
-- Current CGPA: 3.85/4.00
-- Relevant Courses: Power Electronics, Embedded Systems, Digital Signal Processing, Control Systems
-
-TECHNICAL SKILLS
-===============
-Programming: C/C++, Python, MATLAB, Verilog
-Microcontrollers: Arduino, ESP32, STM32, Raspberry Pi
-PCB Design: Altium Designer, KiCad, Eagle
-Simulation: LTspice, PSpice, MATLAB/Simulink, Proteus
-Power Electronics: DC-DC Converters, Inverters, Motor Drives, MPPT
-
-PROJECTS
-========
-Smart Home Energy Monitor (2024)
-- Designed ESP32-based energy monitoring system with current and voltage sensors
-- Developed MQTT protocol for real-time data transmission to cloud dashboard
-- Implemented alert system for abnormal power consumption
-
-Solar MPPT Charge Controller (2023)
-- Designed 30A MPPT charge controller using PIC microcontroller
-- Implemented Perturb & Observe algorithm for maximum power tracking
-- Achieved 95% efficiency in battery charging applications
-
-ECG Amplifier Circuit (2023)
-- Designed low-noise instrumentation amplifier for biomedical signals
-- Implemented bandpass filters for noise reduction
-- Created PCB layout in Altium Designer
-
-RESEARCH
-========
-Efficient MPPT Algorithm for Solar PV Systems (2024)
-- IEEE Transactions on Power Electronics (Under Review)
-
-IoT-Based Smart Energy Meter (2023)
-- International Conference on Electrical Engineering (ICEE 2023)
-
-ACHIEVEMENTS
-===========
-- University Merit Scholarship (2022-2024)
-- 1st Place - IEEE Hardware Hackathon (2023)
-- Best Student Paper Award - ICEE 2023
-- Dean's List Award (2021-2023)
-
-CERTIFICATIONS
-=============
-- Embedded Systems Specialization - Coursera
-- Power Electronics - NPTEL
-- PCB Design with Altium - Udemy
-- Raspberry Pi Certification
-
-LANGUAGES
-=========
-Bengali (Native)
-English (Fluent)`;
-            
-            const blob = new Blob([resumeContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Asif_EEE_Resume.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            
-            downloadBtn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
-            
-            setTimeout(() => {
-                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download CV';
-            }, 2000);
-            
-            showNotification('CV downloaded successfully!', 'success');
-        }, 1000);
+    nextBtn.addEventListener('click', () => {
+        stopSlideshow();
+        const totalPages = Math.ceil(loadedCount / itemsPerPage);
+        goToPage(currentPage + 1); // Will wrap to first page if beyond total
+        startSlideshow();
     });
+    
+    // Pause slideshow when hovering over gallery
+    galleryContainer.addEventListener('mouseenter', stopSlideshow);
+    galleryContainer.addEventListener('mouseleave', () => {
+        const totalPages = Math.ceil(loadedCount / itemsPerPage);
+        if (totalPages > 1) {
+            startSlideshow();
+        }
+    });
+    
+    // Start loading images
+    loadImages();
 }
 
 // ===== HAMBURGER MENU =====
@@ -507,8 +528,7 @@ function initThemeToggle() {
         if (document.body.classList.contains('light-theme')) {
             icon.className = 'fas fa-sun';
             localStorage.setItem('theme', 'light');
-            // Added inline style to force black text for this specific message
-            showNotification('<span style="color: black;">Light mode activated</span>', 'info');
+            showNotification('Light mode activated', 'info');
         } else {
             icon.className = 'fas fa-moon';
             localStorage.setItem('theme', 'dark');
@@ -516,7 +536,6 @@ function initThemeToggle() {
         }
     });
 }
-
 
 // ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
@@ -537,7 +556,6 @@ function initSmoothScroll() {
 
 // ===== NOTIFICATION SYSTEM =====
 function showNotification(message, type = 'info') {
-    // Remove any existing notifications
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => notification.remove());
     
@@ -559,7 +577,7 @@ function showNotification(message, type = 'info') {
                 right: 20px;
                 padding: 15px 25px;
                 background: var(--dark-light);
-                border-left: 4px solid var(--primary);
+                border-left: 4px solid #2A7B9B;
                 border-radius: 5px;
                 box-shadow: var(--shadow);
                 display: flex;
@@ -568,71 +586,39 @@ function showNotification(message, type = 'info') {
                 z-index: 9999;
                 transform: translateX(120%);
                 transition: transform 0.3s ease;
-                color: white;
+                color: var(--light);
             }
             .notification.show {
                 transform: translateX(0);
             }
             .notification-success {
-                border-left-color: #2ecc71;
+                border-left-color: #57C785;
             }
             .notification-error {
-                border-left-color: #e74c3c;
+                border-left-color: #ef4444;
             }
             .notification-info {
-                border-left-color: var(--primary);
+                border-left-color: #2A7B9B;
             }
             .notification i {
                 font-size: 1.2rem;
             }
             .notification-success i {
-                color: #2ecc71;
+                color: #57C785;
             }
             .notification-error i {
-                color: #e74c3c;
+                color: #ef4444;
             }
             .notification-info i {
-                color: var(--primary);
+                color: #2A7B9B;
             }
             
-            /* Light theme styles */
-            body.light-theme {
-                --dark: #f5f5f5;
-                --dark-light: #ffffff;
-                --light: #333333;
-                --gray: #666666;
-                color: #333333;
+            body.light-theme .notification {
+                background: var(--dark-light);
+                border-left-color: #00C6FB;
             }
-            
-            body.light-theme .navbar.scrolled {
-                background: rgba(255, 255, 255, 0.95);
-            }
-            
-            body.light-theme .nav-link {
-                color: #333333;
-            }
-            
-            body.light-theme .nav-link:hover,
-            body.light-theme .nav-link.active {
-                color: var(--primary);
-            }
-            
-            body.light-theme .theme-toggle {
-                color: #333333;
-            }
-            
-            body.light-theme .expertise-card,
-            body.light-theme .project-card,
-            body.light-theme .research-content,
-            body.light-theme .achievement-card,
-            body.light-theme .contact-form-container,
-            body.light-theme .info-card {
-                background: #ffffff;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            }
-            
-            body.light-theme .footer {
-                background: #ffffff;
+            body.light-theme .notification-info i {
+                color: #00C6FB;
             }
         `;
         document.head.appendChild(style);
