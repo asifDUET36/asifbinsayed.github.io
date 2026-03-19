@@ -536,11 +536,9 @@ function initThemeToggle() {
         if (document.body.classList.contains('light-theme')) {
             icon.className = 'fas fa-sun';
             localStorage.setItem('theme', 'light');
-            showNotification('Light mode activated', 'info');
         } else {
             icon.className = 'fas fa-moon';
             localStorage.setItem('theme', 'dark');
-            showNotification('Dark mode activated', 'info');
         }
     });
 }
